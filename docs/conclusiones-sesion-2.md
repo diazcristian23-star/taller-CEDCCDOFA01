@@ -60,3 +60,15 @@ Se incorporó una prueba para verificar que, cuando existen varios turnos vigent
 La cobertura aumentó, pero todavía existen mutantes sobrevivientes. El aumento del puntaje de mutación también está influido por la reducción del número de mutantes generados.
 
 Conclusión: una cobertura elevada no garantiza que las pruebas detecten todos los errores.
+
+### Resultados Parte 3: Análisis estático
+
+Se ejecutaron los controles del servicio Catalog:
+
+- npm run typecheck: sin errores.
+- npm run lint: sin errores.
+- npm run build: compilación correcta.
+
+Se observó que lint y typecheck utilizan el mismo comando (tsc --noEmit), por lo que ambos realizan esencialmente la misma validación de tipos.
+
+Como mejora, se recomienda incorporar un analizador estático independiente para detectar problemas de estilo y otras reglas de calidad.
