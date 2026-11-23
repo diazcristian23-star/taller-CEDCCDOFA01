@@ -34,3 +34,15 @@ Aunque todas las pruebas de Catalog pasan, cuatro de cinco cambios artificiales 
 ## Registro de uso de IA
 
 ## Conclusiones finales
+
+### Resultados Parte 1: De rojo a verde
+
+Se incorporó una prueba para verificar que un turno siga activo durante su último día.
+
+- Antes de la corrección: 28 pruebas aprobadas y 1 fallida.
+- Error detectado: el último día del turno se consideraba inactivo.
+- Después de la corrección: 29 pruebas aprobadas y 0 fallidas.
+- Evidencia: ejecución de npm test en services/catalog.
+- Commits: 9040e32 (prueba) y ac388a1 (corrección).
+
+El ejercicio demuestra que una prueba automatizada puede detectar un error y comprobar posteriormente su corrección.
