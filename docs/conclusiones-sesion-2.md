@@ -72,3 +72,22 @@ Se ejecutaron los controles del servicio Catalog:
 Se observó que lint y typecheck utilizan el mismo comando (tsc --noEmit), por lo que ambos realizan esencialmente la misma validación de tipos.
 
 Como mejora, se recomienda incorporar un analizador estático independiente para detectar problemas de estilo y otras reglas de calidad.
+
+### Resultados Parte 4: Dependencias y secretos
+
+Se ejecutó npm audit sobre el servicio Catalog.
+
+- Diagnóstico inicial: 4 vulnerabilidades (2 moderadas y 2 altas).
+- Después de npm audit fix: 3 vulnerabilidades (2 moderadas y 1 alta).
+- Se actualizaron explícitamente hono, @hono/node-server y zod.
+- Resultado posterior: 0 vulnerabilidades reportadas por npm.
+- Validación: 30 pruebas aprobadas, typecheck sin errores y compilación correcta.
+
+Se inspeccionó el parche 03-secreto.patch, que introduce una API key ficticia directamente en compose.yaml.
+
+- Se aplicó temporalmente el parche.
+- Se detectó CATALOG_API_KEY en la línea 66 mediante grep.
+- Se revirtió el parche.
+- Se confirmó que el secreto fue retirado.
+
+Conclusión: las dependencias deben revisarse periódicamente y las credenciales no deben almacenarse directamente en archivos versionados. La búsqueda manual realizada no sustituye un detector automático de secretos.
