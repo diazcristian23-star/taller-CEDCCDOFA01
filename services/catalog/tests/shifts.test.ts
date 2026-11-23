@@ -36,6 +36,20 @@ describe("currentShift", () => {
   });
 });
 
+describe("currentShift con varios turnos", () => {
+  it("elige el turno con menor identificador", () => {
+    const primero = { ...shift, id: 1 };
+    const segundo = { ...shift, id: 2 };
+
+    const resultado = currentShift(
+      [segundo, primero],
+      "2026-10-15"
+    );
+
+    expect(resultado?.id).toBe(1);
+  });
+});
+
 describe("overlaps", () => {
   it("detecta turnos que se cruzan", () => {
     const other = { start_date: "2026-10-10", end_date: "2026-10-20" };

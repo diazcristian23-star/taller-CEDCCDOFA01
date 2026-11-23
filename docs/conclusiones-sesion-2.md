@@ -46,3 +46,17 @@ Se incorporó una prueba para verificar que un turno siga activo durante su últ
 - Commits: 9040e32 (prueba) y ac388a1 (corrección).
 
 El ejercicio demuestra que una prueba automatizada puede detectar un error y comprobar posteriormente su corrección.
+
+### Resultados Parte 2: Cobertura y mutación
+
+Se incorporó una prueba para verificar que, cuando existen varios turnos vigentes, se seleccione el de menor identificador.
+
+- Pruebas: 30 aprobadas y 0 fallidas.
+- Cobertura general de líneas: 66,14 % inicial y 66,66 % final.
+- Cobertura de shifts.ts: 80 % inicial y 100 % final.
+- Mutación inicial: 5 mutantes, 1 muerto y 4 sobrevivientes (20 %).
+- Mutación final: 4 mutantes, 1 muerto y 3 sobrevivientes (25 %).
+
+La cobertura aumentó, pero todavía existen mutantes sobrevivientes. El aumento del puntaje de mutación también está influido por la reducción del número de mutantes generados.
+
+Conclusión: una cobertura elevada no garantiza que las pruebas detecten todos los errores.
